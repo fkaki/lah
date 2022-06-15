@@ -1,16 +1,16 @@
 #! /usr/bin/python3
 
-from . import LED
+from . import led as LED
 import sys
 
 args = sys.argv
 
 def main():
     print("\nStarted!\nPress \"Ctrl + C\" to stop.")
-    arg = int(args[1]) + 0
+    arg = int(args[1])
     print("\nThe number is: " + str(arg) + "\n")
     
-    while 0 <= arg:
+    while 0 <= arg < 8:
         if arg & 4 == 1:
             LED.startBlinking(LED.LEDPorts.GRN)
         if arg & 2 == 1:
