@@ -1,6 +1,6 @@
 #! /usr/bin/python3
 
-from . import led as LED
+from . import LED as LED
 import sys
 
 args = sys.argv
@@ -10,7 +10,10 @@ def main():
     arg = int(args[1])
     print("\nThe number is: " + str(arg) + "\n")
     
-    while 0 <= arg < 8:
+    digit = len(LED.LEDPorts)
+    
+    # for文使って桁数いじれそう ( i & 2 ** len(LEDPorts[i-1])) みたいな
+    while 0 <= arg < 2 ** digit - 1:
         if arg & 4 == 1:
             LED.startBlinking(LED.LEDPorts.GRN)
         if arg & 2 == 1:
